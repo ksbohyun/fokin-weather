@@ -97,7 +97,7 @@ const weatherOptions={
     },
 }
 
-export default function Weather({temp, condition, name}){
+export default function Weather({temp, condition, name, description}){
     return (
         <LinearGradient
             colors={weatherOptions[condition].gradient}
@@ -110,7 +110,7 @@ export default function Weather({temp, condition, name}){
             </View>
             <View style={{...styles.halfContainer, ...styles.textContainer}}>
                 <Text style={styles.title}>{name}</Text>
-                <Text style={styles.subtitle}>{weatherOptions[condition].title}</Text>
+                <Text style={styles.subtitle}>{description}</Text>
             </View>
         </LinearGradient>
     )
@@ -119,6 +119,7 @@ export default function Weather({temp, condition, name}){
 Weather.propTypes={
     temp: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     condition: PropTypes.oneOf([
         'Thunderstorm',
         'Drizzle',
